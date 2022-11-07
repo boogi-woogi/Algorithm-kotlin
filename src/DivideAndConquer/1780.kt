@@ -3,10 +3,6 @@ package DivideAndConquer
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-var zeroPaper = 0
-var onePaper = 0
-var minusOnePaper = 0
-
 fun divideArea(size: Int) =
     arrayOf(
         Pair(0, 0),
@@ -19,6 +15,10 @@ fun divideArea(size: Int) =
         Pair(size / 3 * 2, size / 3),
         Pair(size / 3 * 2, size / 3 * 2)
     )
+
+var zeroPaper = 0
+var onePaper = 0
+var minusOnePaper = 0
 
 fun addPaper(kindOfPaper: Int) {
     when (kindOfPaper) {
