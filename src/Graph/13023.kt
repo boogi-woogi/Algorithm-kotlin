@@ -5,38 +5,38 @@ import java.io.InputStreamReader
 
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val (n, m) = readLine().split(" ").map { it.toInt() }
-    val friendRelationRecord = Array(n) { ArrayList<Int>() }
-    val isChecked = BooleanArray(n) { false }
+    val graph = Array(n) { ArrayList<Int>() }
+    val visited = BooleanArray(n) { false }
 
     repeat(m) {
-        val (friendA, friendB) = readLine().split(" ").map { it.toInt() }
-        friendRelationRecord[friendA].add(friendB)
-        friendRelationRecord[friendB].add(friendA)
+        val (nodeA, nodeB) = readLine().split(" ").map { it.toInt() }
+        graph[nodeA].add(nodeB)
+        graph[nodeB].add(nodeA)
     }
 
     fun dfs(
         depth: Int,
-        curFriend: Int,
+        cur: Int,
     ): Boolean {
         if (depth == 4) return true
-        friendRelationRecord[curFriend].forEach { nextFriend ->
-            if (!isChecked[nextFriend]) {
-                isChecked[nextFriend] = true
-                if (dfs(depth + 1, nextFriend)){
+        graph[cur].forEach { next ->
+            if (!visited[next]) {
+                visited[next] = true
+                if (dfs(depth + 1, next)){
                     return true
                 }
-                isChecked[nextFriend] = false
+                visited[next] = false
             }
         }
         return false
     }
 
     for (friend in 0 until n) {
-        isChecked[friend] = true
+        visited[friend] = true
         if (dfs(0, friend)) {
             return println(1)
         }
-        isChecked[friend] = false
+        visited[friend] = false
     }
     println(0)
 }
