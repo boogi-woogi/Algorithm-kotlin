@@ -31,12 +31,12 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
         return false
     }
 
-    for (friend in 0 until n) {
-        visited[friend] = true
-        if (dfs(0, friend)) {
+    for (node in 0 until n) {
+        visited[node] = true
+        if (dfs(0, node)) {
             return println(1)
         }
-        visited[friend] = false
+        visited[node] = false
     }
     println(0)
 }
