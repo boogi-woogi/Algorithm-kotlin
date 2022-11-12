@@ -10,8 +10,9 @@ fun calcMeltAmount() {
             if (map[row][col] > 0) {
                 near.forEach { pt ->
                     val (nearY, nearX) = arrayOf(row + pt.first, col + pt.second)
-                    if (map[nearY][nearX] == 0)
+                    if (map[nearY][nearX] == 0) {
                         meltAmount[row][col]++
+                    }
                 }
             }
         }

@@ -60,12 +60,12 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
             mv.forEach { pt ->
                 val (ny, nx) = arrayOf(cur.y + pt.first, cur.x + pt.second)
                 if (isIn(ny, nx)) {
-                    if (burned[ny][nx] > cur.cnt + 1 && !visited[ny][nx]  && arr[ny][nx] == '.') {
+                    if (burned[ny][nx] > cur.cnt + 1 && !visited[ny][nx] && arr[ny][nx] == '.') {
                         visited[ny][nx] = true
                         q.addLast(Record(ny, nx, cur.cnt + 1))
                     }
                 } else {
-                    return cur.cnt+1
+                    return cur.cnt + 1
                 }
             }
         }
