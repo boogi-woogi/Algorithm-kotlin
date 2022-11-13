@@ -17,11 +17,11 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val map = Array(h) { IntArray(w) { 0 } }
     val visited = Array(k + 1) { Array(h) { BooleanArray(w) { false } } }
     val mv = arrayOf(Pair(-1, 0), Pair(1, 0), Pair(0, -1), Pair(0, 1))
-
     val horseMv = arrayOf(
         Pair(-1, -2), Pair(-1, 2), Pair(-2, -1), Pair(-2, 1),
         Pair(1, -2), Pair(1, 2), Pair(2, -1), Pair(2, 1))
     val q: Queue<Monkey> = LinkedList()
+
     fun isIn(y: Int, x: Int) = (y in 0 until h) && (x in 0 until w)
 
     repeat(h) { i ->
