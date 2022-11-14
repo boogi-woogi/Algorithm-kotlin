@@ -7,7 +7,6 @@ import java.util.*
 fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val n = readLine().toInt()
     val graph = IntArray(n + 1) { 0 }
-    val q: Queue<Int> = LinkedList()
     val visited = ArrayList<Int>()
     val answer = mutableSetOf<Int>()
 
